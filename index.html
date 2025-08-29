@@ -1,232 +1,235 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Descubrí El Calafate</title>
-    <style>
-      /* ===== Fuente general ===== */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Descubrí El Calafate</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-body {
-  font-family: 'Montserrat', sans-serif;
-  background: #f5f9fc;
-  color: #333;
-  line-height: 1.6;
-}
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #f5f9fc;
+      color: #333;
+      line-height: 1.6;
+    }
 
-/* ===== Encabezado ===== */
-header {
-  background: linear-gradient(to right, #005f99, #0077b6);
-  color: #fff;
-  text-align: center;
-  padding: 3rem 1rem;
-}
+    header {
+      background: linear-gradient(to right, #005f99, #0077b6);
+      color: #fff;
+      text-align: center;
+      padding: 3rem 1rem;
+    }
 
-header h1 {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-}
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
 
-header p {
-  font-size: 1.2rem;
-  opacity: 0.9;
-}
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
 
-/* ===== Secciones ===== */
-section {
-  padding: 3rem 1.5rem;
-  max-width: 1200px;
-  margin: auto;
-}
+    section {
+      padding: 3rem 1.5rem;
+      max-width: 1200px;
+      margin: auto;
+    }
 
-h2 {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  color: #005f99;
-}
+    h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: #005f99;
+    }
 
-/* ===== Tarjetas ===== */
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-}
+    /* === Imágenes uniformes === */
+    section img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      margin-bottom: 1rem;
+    }
 
-.card {
-  background: #fff;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-  transition: transform 0.2s ease;
-}
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
 
-.card:hover {
-  transform: translateY(-5px);
-}
+    .card {
+      background: #fff;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
+    }
 
-.card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
+    .card:hover {
+      transform: translateY(-5px);
+    }
 
-.card-content {
-  padding: 1.5rem;
-}
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
 
-.card-content h3 {
-  font-size: 1.3rem;
-  color: #0077b6;
-  margin-bottom: 0.5rem;
-}
+    .card-content {
+      padding: 1.5rem;
+    }
 
-.card-content p {
-  font-size: 0.95rem;
-  color: #555;
-}
+    .card-content h3 {
+      font-size: 1.3rem;
+      color: #0077b6;
+      margin-bottom: 0.5rem;
+    }
 
-/* ===== Formulario ===== */
-form {
-  background: #fff;
-  padding: 2rem;
-  border-radius: 15px;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-  max-width: 600px;
-  margin: 2rem auto;
-}
+    .card-content p {
+      font-size: 0.95rem;
+      color: #555;
+    }
 
-.form-group {
-  margin-bottom: 1.5rem;
-}
+    form {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      max-width: 600px;
+      margin: 2rem auto;
+    }
 
-label {
-  display: block;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: #005f99;
-}
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
 
-input,
-textarea {
-  width: 100%;
-  padding: 0.9rem;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  font-size: 1rem;
-  transition: border 0.3s;
-}
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #005f99;
+    }
 
-input:focus,
-textarea:focus {
-  border-color: #0077b6;
-  outline: none;
-}
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 0.9rem;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 1rem;
+      transition: border 0.3s;
+    }
 
-textarea {
-  resize: vertical;
-  min-height: 120px;
-}
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: #0077b6;
+      outline: none;
+    }
 
-button.submit-button {
-  background: #ff6b35;
-  color: #fff;
-  border: none;
-  padding: 1rem 1.5rem;
-  border-radius: 10px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
 
-button.submit-button:hover {
-  background: #ff884d;
-}
+    button.submit-button {
+      background: #ff6b35;
+      color: #fff;
+      border: none;
+      padding: 1rem 1.5rem;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
 
-/* ===== Footer ===== */
-footer {
-  background: #005f99;
-  color: #fff;
-  text-align: center;
-  padding: 1.5rem;
-  margin-top: 2rem;
-  font-size: 0.9rem;
-}
+    button.submit-button:hover {
+      background: #ff884d;
+    }
 
-    </style>
+    footer {
+      background: #005f99;
+      color: #fff;
+      text-align: center;
+      padding: 1.5rem;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Descubrí El Calafate</h1>
-    </header>
+  <header>
+    <h1>Descubrí El Calafate</h1>
+  </header>
 
-    <section>
-        <h2>Glaciar Perito Moreno</h2>
-        <img src="https://wallpapercave.com/wp/wp4201820.jpg" alt="Perito Moreno">
-        <p>Uno de los glaciares más imponentes del mundo, con un frente de 5 km y paredes de hasta 74 metros sobre el lago.</p>
+  <section>
+    <h2>Glaciar Perito Moreno</h2>
+    <img src="https://wallpapercave.com/wp/wp4201820.jpg" alt="Perito Moreno">
+    <p>Uno de los glaciares más imponentes del mundo, con un frente de 5 km y paredes de hasta 74 metros sobre el lago.</p>
 
-        <h2>Glaciar Spegazzini</h2>
-        <img src="https://lirp.cdn-website.com/0e23376f/dms3rep/multi/opt/glaciar-spegazzini-solo-patagonia-1920w.jpg" alt="Glaciar Spegazzini">
-        <p>Accesible por barco, el glaciar más alto del parque con paredes que superan los 130 metros de altura.</p>
+    <h2>Glaciar Spegazzini</h2>
+    <img src="https://lirp.cdn-website.com/0e23376f/dms3rep/multi/opt/glaciar-spegazzini-solo-patagonia-1920w.jpg" alt="Glaciar Spegazzini">
+    <p>Accesible por barco, el glaciar más alto del parque con paredes que superan los 130 metros de altura.</p>
 
-        <h2>Gastronomía Calafateña</h2>
-        <img src="https://i.pinimg.com/originals/41/c8/6a/41c86a5b2c767e3061a4e5e4fd8cbb30.jpg" alt="Gastronomía local">
-        <p>Disfrutá del cordero patagónico, trucha, guanaco y dulces artesanales de calafate en los mejores restaurantes locales.</p>
+    <h2>Gastronomía Calafateña</h2>
+    <img src="https://i.pinimg.com/originals/41/c8/6a/41c86a5b2c767e3061a4e5e4fd8cbb30.jpg" alt="Gastronomía local">
+    <p>Disfrutá del cordero patagónico, trucha, guanaco y dulces artesanales de calafate en los mejores restaurantes locales.</p>
 
-        <h2>El Calafate</h2>
-        <img src="https://www.civitatis.com/f/argentina/el-calafate/galeria/vista-aerea-calafate.jpg" alt="Gastronomía local">
-        <p> El Calafate
-        Puerta de entrada al Parque Nacional Los Glaciares, El Calafate se ubica a orillas del Lago Argentino y es famoso por el imponente Glaciar Perito Moreno. 
-        </p>
-        
-         <h2>El chalten</h2>
-        <img src="https://tse4.mm.bing.net/th/id/OIP.gGniXZYNNcU2aOQ5dge5ZwHaEK?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Gastronomía local">
-        <p>Conocido como la Capital Nacional del Trekking, El Chaltén se encuentra al pie del Cerro Fitz Roy..</p>
+    <h2>El Calafate</h2>
+    <img src="https://www.civitatis.com/f/argentina/el-calafate/galeria/vista-aerea-calafate.jpg" alt="Vista aérea de El Calafate">
+    <p>Puerta de entrada al Parque Nacional Los Glaciares, El Calafate se ubica a orillas del Lago Argentino y es famoso por el imponente Glaciar Perito Moreno.</p>
 
-        <h2>Servicios adicionales</h2>
-        <p>Podés cambiar dinero en casas de cambio, usar cajeros automáticos o pedir remises económicos (tipo “Uber local”) para moverte más barato por la ciudad.</p>
-    </section>
+    <h2>El Chaltén</h2>
+    <img src="https://wallpapercave.com/wp/wp7074839.jpg" alt="Vista de El Chaltén">
+    <p>Conocido como la Capital Nacional del Trekking, El Chaltén se encuentra al pie del Cerro Fitz Roy.</p>
 
-    <section>
-        <h2>Dejanos tu consulta o experiencia</h2>
-        <form action="https://formspree.io/f/xyzdknkw" method="POST">
-            <input type="text" name="nombre" placeholder="Tu nombre" required>
-            <input type="email" name="email" placeholder="Tu email" required>
-            <select name="interes">
-                <option value="alojamiento">Alojamiento</option>
-                <option value="excursiones">Excursiones</option>
-                <option value="gastronomia">Gastronomía</option>
-                <option value="transporte">Transporte</option>
-                <option value="remises">Remises económicos</option>
-                <option value="cambio">Casa de cambio</option>
-            </select>
-            <textarea name="mensaje" placeholder="Escribí tu consulta o comentario (pros y contras de lugares visitados)..." rows="5" required></textarea>
-            
-            <!-- Campos ocultos útiles -->
-            <input type="hidden" name="_subject" value="Nuevo mensaje desde la web de El Calafate">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value="https://tu-sitio.com/gracias.html">
+    <h2>Servicios adicionales</h2>
+    <p>Podés cambiar dinero en casas de cambio, usar cajeros automáticos o pedir remises económicos (tipo “Uber local”) para moverte más barato por la ciudad.</p>
+  </section>
 
-            <button type="submit">Enviar</button>
-        </form>
-        <div class="nota">
-            🙌 La página se mantiene con <b>donaciones voluntarias</b>.  
-            Tu devolución y comentarios ayudan a otros viajeros a elegir mejor.  
-            ¡Gracias por apoyar esta iniciativa!
-        </div>
-    </section>
+  <section>
+    <h2>Dejanos tu consulta o experiencia</h2>
+    <form action="https://formspree.io/f/xyzdknkw" method="POST">
+      <input type="text" name="nombre" placeholder="Tu nombre" required>
+      <input type="email" name="email" placeholder="Tu email" required>
+      <select name="interes">
+        <option value="alojamiento">Alojamiento</option>
+        <option value="excursiones">Excursiones</option>
+        <option value="gastronomia">Gastronomía</option>
+        <option value="transporte">Transporte</option>
+        <option value="remises">Remises económicos</option>
+        <option value="cambio">Casa de cambio</option>
+      </select>
+      <textarea name="mensaje" placeholder="Escribí tu consulta o comentario (pros y contras de lugares visitados)..." rows="5" required></textarea>
 
-    <footer>
-        <p>© 2025 - Promoción turística de El Calafate | Desarrollado</p>
+      <input type="hidden" name="_subject" value="Nuevo mensaje desde la web de El Calafate">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://tu-sitio.com/gracias.html">
+
+      <button type="submit" class="submit-button">Enviar</button>
+    </form>
+    <div class="nota">
+      🙌 La página se mantiene con <b>donaciones voluntarias</b>.  
+      Tu devolución y comentarios ayudan a otros viajeros a elegir mejor.  
+      ¡Gracias por apoyar esta iniciativa!
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 - Promoción turística de El Calafate | Desarrollado</p>
     </footer>
 </body>
 </html>
+
 
 
