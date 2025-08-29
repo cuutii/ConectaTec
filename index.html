@@ -3,357 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conectatec: Tu Socio Tecnológico</title>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Descubrí El Calafate</title>
     <style>
-        /* Estilos generales */
         body {
-            font-family: 'Open Sans', sans-serif; /* Establece la fuente del cuerpo del documento */
-            margin: 0; /* Elimina los márgenes predeterminados del cuerpo */
-            padding: 0; /* Elimina el relleno predeterminado del cuerpo */
-            box-sizing: border-box; /* Incluye el padding y el borde en el ancho y alto total del elemento */
-            line-height: 1.7; /* Establece el interlineado para mejorar la legibilidad del texto */
-            color: #333; /* Establece el color del texto principal */
-            background-color: #f9f9f9; /* Establece el color de fondo general */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
         }
-        a {
-            text-decoration: none; /* Elimina el subrayado predeterminado de los enlaces */
-            color: #007bff; /* Establece el color de los enlaces */
+        header {
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/f/f1/Glaciar_Perito_Moreno_Patagonia_Argentina_Luca_Galuzzi_2005.JPG');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-shadow: 2px 2px 4px #000;
         }
-        a:hover {
-            color: #0056b3; /* Cambia el color del enlace al pasar el mouse por encima */
+        header h1 {
+            font-size: 3em;
+            background: rgba(0,0,0,0.5);
+            padding: 10px 20px;
+            border-radius: 10px;
         }
-        h1, h2, h3 {
-            margin-top: 2rem; /* Añade espacio arriba del título */
-            margin-bottom: 1rem; /* Añade espacio debajo del título */
-            font-weight: 700; /* Establece el grosor de la fuente del título */
-            color: #2c3e50; /* Establece el color del título */
-            line-height: 1.2; /* Mejora la apariencia de los títulos */
+        section {
+            padding: 40px 20px;
+            max-width: 900px;
+            margin: auto;
         }
-        p {
-            margin-bottom: 1rem; /* Añade espacio debajo de los párrafos */
-        }
-        img {
-            max-width: 100%; /* Asegura que la imagen no se desborde de su contenedor */
-            height: auto; /* Mantiene la proporción de la imagen */
-            border-radius: 8px; /* Añade bordes redondeados a las imágenes */
-        }
-
-        /* Estilos de los contenedores */
-        .container {
-            max-width: 1200px; /* Establece un ancho máximo para el contenido principal */
-            margin: 0 auto; /* Centra el contenedor horizontalmente */
-            padding: 0 20px; /* Añade relleno horizontal en pantallas pequeñas */
-        }
-        .section {
-            padding: 60px 0; /* Añade relleno vertical a las secciones */
-            text-align: center; /* Centra el contenido de la sección por defecto */
-        }
-        .row {
-            display: flex; /* Utiliza Flexbox para el diseño de la fila */
-            flex-wrap: wrap; /* Permite que los elementos se envuelvan a la siguiente línea en pantallas pequeñas */
-            justify-content: center; /* Centra los elementos horizontalmente en la fila */
-            margin-bottom: -30px; /* Margen negativo para compensar el padding de las columnas */
-        }
-        .col-md-4 {
-            flex: 0 0 100%; /* Por defecto, ocupa el 100% del ancho en pantallas pequeñas */
-            max-width: 100%;
-            padding: 0 15px; /* Añade relleno horizontal a las columnas */
-            margin-bottom: 30px; /* Añade margen inferior a las columnas */
-            box-sizing: border-box; /* Incluye padding y borde en el ancho total */
-        }
-        @media (min-width: 768px) {
-            .col-md-4 {
-                flex: 0 0 50%; /* Ocupa el 50% del ancho en pantallas medianas */
-                max-width: 50%;
-            }
-        }
-        @media (min-width: 992px) {
-            .col-md-4 {
-                flex: 0 0 33.3333%; /* Ocupa el 33.3333% del ancho en pantallas grandes */
-                max-width: 33.3333%;
-            }
-        }
-
-        /* Estilos del encabezado (Hero Section) */
-        .hero-section {
-            background-color: #e9ecef; /* Color de fondo del encabezado */
-            padding: 100px 0; /* Relleno vertical del encabezado */
-            text-align: center; /* Alinea el texto al centro */
-            background-size: cover; /* Cubre todo el espacio disponible */
-            background-position: center; /* Centra la imagen de fondo */
-            position: relative; /* Para poder usar z-index en elementos internos */
-        }
-
-        .hero-section::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
+        section img {
             width: 100%;
-            height: 100%;
-            background-color: rgba(255, 255, 255, 0.7); /* Capa semitransparente para mejorar la legibilidad del texto */
-        }
-
-
-        .hero-section .container {
-            position: relative; /* Para que el contenido esté por encima de la capa semitransparente */
-            z-index: 1;
-        }
-
-        .hero-title {
-            font-size: 3rem; /* Tamaño de fuente del título */
-            margin-bottom: 20px; /* Margen inferior del título */
-            color: #2c3e50; /* Color del título */
-        }
-        .hero-subtitle {
-            font-size: 1.2rem; /* Tamaño de fuente del subtítulo */
-            margin-bottom: 30px; /* Margen inferior del subtítulo */
-            color: #495057; /* Color del subtítulo */
-            max-width: 80%; /* Ancho máximo del subtítulo */
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .cta-button {
-            background-color: #007bff; /* Color de fondo del botón */
-            color: white; /* Color del texto del botón */
-            padding: 12px 30px; /* Relleno del botón */
-            font-size: 1.1rem; /* Tamaño de fuente del botón */
-            border: none; /* Elimina el borde del botón */
-            border-radius: 8px; /* Bordes redondeados del botón */
-            cursor: pointer; /* Cambia el cursor al pasar por encima */
-            transition: background-color 0.3s ease; /* Transición suave del color de fondo */
-            display: inline-block;
-        }
-        .cta-button:hover {
-            background-color: #0056b3; /* Cambia el color de fondo al pasar el mouse */
-        }
-
-        /* Estilos de la sección de servicios */
-        .service-card {
-            background-color: white; /* Color de fondo de la tarjeta de servicio */
-            padding: 30px; /* Relleno de la tarjeta de servicio */
-            border-radius: 8px; /* Bordes redondeados de la tarjeta de servicio */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra de la tarjeta de servicio */
-            transition: transform 0.3s ease; /* Transición suave para el efecto hover */
-            text-align: center;
-        }
-        .service-card:hover {
-            transform: translateY(-10px); /* Eleva la tarjeta al pasar el mouse */
-        }
-        .service-card h3 {
-            font-size: 1.5rem; /* Tamaño de fuente del título del servicio */
-            margin-bottom: 15px; /* Margen inferior del título del servicio */
-            color: #2c3e50;
-        }
-        .service-card p {
-            font-size: 1rem; /* Tamaño de fuente de la descripción del servicio */
-            color: #666; /* Color de la descripción del servicio */
-            margin-bottom: 20px; /* Margen inferior de la descripción del servicio */
-        }
-        .service-card img {
-            margin-bottom: 20px;
+            height: auto;
             border-radius: 8px;
+            margin-bottom: 10px;
         }
-
-        /* Estilos de la sección "Acerca de nosotros" */
-        .about-us-section {
-            background-color: #f0f4f8; /* Color de fondo de la sección "Acerca de nosotros" */
-            padding: 60px 0; /* Relleno de la sección "Acerca de nosotros" */
+        footer {
+            background-color: #222;
+            color: #fff;
             text-align: center;
+            padding: 20px;
         }
-        .about-us-content {
-            max-width: 80%;
-            margin: 0 auto;
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
-        .about-us-content h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: #2c3e50;
-        }
-        .about-us-content p {
-            font-size: 1.1rem;
-            color: #666;
-        }
-
-        /* Estilos del formulario de contacto */
-        .contact-form-section {
-            padding: 60px 0;
-            background-color: white;
-        }
-        .contact-form-container {
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: left;
-        }
-
-        .contact-form-container h2 {
-            font-size: 2rem;
-            margin-bottom: 30px;
-            text-align: center;
-            color: #2c3e50;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #34495e;
-            font-size: 1rem;
-        }
-        .form-control {
+        form input, form textarea, form select {
             width: 100%;
             padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-            box-sizing: border-box;
+            margin: 10px 0;
+            border-radius: 4px;
+            border: 1px solid #ccc;
         }
-        .form-control:focus {
-            outline: none;
-            border-color: #007bff;
-            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
-        }
-        textarea.form-control {
-            height: 150px;
-            resize: vertical;
-        }
-        .submit-button {
-            background-color: #007bff;
+        form button {
+            background-color: #006699;
             color: white;
-            padding: 12px 30px;
+            padding: 10px 20px;
             border: none;
-            border-radius: 8px;
-            font-size: 1.1rem;
+            border-radius: 4px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
-            width: 100%;
-            display: block;
-            text-align: center;
         }
-        .submit-button:hover {
-            background-color: #0056b3;
+        form button:hover {
+            background-color: #004466;
         }
-
-         /* Estilos para hacerlo responsive */
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2.5rem;
-            }
-            .hero-subtitle {
-                font-size: 1rem;
-            }
-            .section {
-                padding: 40px 0;
-            }
-             .contact-form-container {
-                padding: 0 15px;
-            }
+        .nota {
+            font-size: 0.9em;
+            color: #555;
+            margin-top: 15px;
+            padding: 10px;
+            background: #eef;
+            border-radius: 6px;
         }
     </style>
 </head>
 <body>
-    <header class="hero-section" style="background-image: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
-        <div class="container">
-            <h1 class="hero-title">Conectatec: Tu Socio Tecnológico para Crecer</h1>
-            <p class="hero-subtitle">Soporte técnico remoto experto, diseño web a medida y software innovador para pequeñas empresas.</p>
-            <a href="#contact-form" class="cta-button">¡Contáctanos Ahora!</a>
-        </div>
+    <header>
+        <h1>Descubrí El Calafate</h1>
     </header>
 
-    <section id="services" class="section">
-        <div class="container">
-            <h2>Nuestros Servicios</h2>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="service-card">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRH-hgIk8Lxx6FzsCc07UBhE4VwhXtAdP0MdA&s" alt="Soporte Técnico Remoto">
-                        <h3>Soporte Técnico Remoto</h3>
-                        <p>Soluciones rápidas y eficientes a tus problemas tecnológicos sin importar dónde te encuentres. Nuestro equipo de expertos está listo para ayudarte.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="service-card">
-                        <img src="https://media.istockphoto.com/id/1503858430/es/vector/concepto-de-desarrollo-de-software-de-sitios-web-sitio-de-dise%C3%B1o-web-y-aplicaci%C3%B3n-m%C3%B3vil-en.jpg?s=612x612&w=0&k=20&c=mZoL9erxzcblOQHoprcasZSo1hKHTQq1-lnu2n_9Pto=" alt="Creación de Páginas Web">
-                        <h3>Creación de Páginas Web</h3>
-                        <p>Diseñamos y desarrollamos sitios web personalizados que impulsan tu presencia online y atraen a tus clientes.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="service-card">
-                         <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Software a Medida">
-                        <h3>Software a Medida</h3>
-                        <p>Creamos soluciones de software únicas que se adaptan perfectamente a las necesidades específicas de tu negocio.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="service-card">
-                         <img src="https://optmedialatam.com/wp-content/uploads/web-corporativa.jpg" alt="Software a Medida">
-                        <h3>SEO y Seguridad</h3>
-                        <p>Solucionamos el posicionamiento web como asi tambien la seguridad de tus pagina y datos.
-                        </p>
+    <section>
+        <h2>Glaciar Perito Moreno</h2>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Glaciar_Perito_Moreno_Patagonia_Argentina_Luca_Galuzzi_2005.JPG" alt="Perito Moreno">
+        <p>Uno de los glaciares más imponentes del mundo, con un frente de 5 km y paredes de hasta 74 metros sobre el lago.</p>
 
-                    </div>
-                </div>
-            </div>
+        <h2>Glaciar Spegazzini</h2>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/dc/Spegazzini_Glacier_-_Lago_Argentino_-_Patagonia.jpg" alt="Glaciar Spegazzini">
+        <p>Accesible por barco, el glaciar más alto del parque con paredes que superan los 130 metros de altura.</p>
+
+        <h2>Gastronomía Calafateña</h2>
+        <img src="https://media-cdn.tripadvisor.com/media/photo-s/0f/01/94/80/cordero-patagonico.jpg" alt="Gastronomía local">
+        <p>Disfrutá del cordero patagónico, trucha, guanaco y dulces artesanales de calafate en los mejores restaurantes locales.</p>
+
+        <h2>Servicios adicionales</h2>
+        <p>Podés cambiar dinero en casas de cambio, usar cajeros automáticos o pedir remises económicos (tipo “Uber local”) para moverte más barato por la ciudad.</p>
+    </section>
+
+    <section>
+        <h2>Dejanos tu consulta o experiencia</h2>
+        <form action="https://formspree.io/f/xyzdknkw" method="POST">
+            <input type="text" name="nombre" placeholder="Tu nombre" required>
+            <input type="email" name="email" placeholder="Tu email" required>
+            <select name="interes">
+                <option value="alojamiento">Alojamiento</option>
+                <option value="excursiones">Excursiones</option>
+                <option value="gastronomia">Gastronomía</option>
+                <option value="transporte">Transporte</option>
+                <option value="remises">Remises económicos</option>
+                <option value="cambio">Casa de cambio</option>
+            </select>
+            <textarea name="mensaje" placeholder="Escribí tu consulta o comentario (pros y contras de lugares visitados)..." rows="5" required></textarea>
+            
+            <!-- Campos ocultos útiles -->
+            <input type="hidden" name="_subject" value="Nuevo mensaje desde la web de El Calafate">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://tu-sitio.com/gracias.html">
+
+            <button type="submit">Enviar</button>
+        </form>
+        <div class="nota">
+            🙌 Esta página se mantiene con <b>donaciones voluntarias</b>.  
+            Tu devolución y comentarios ayudan a otros viajeros a elegir mejor.  
+            ¡Gracias por apoyar esta iniciativa!
         </div>
     </section>
 
-    <section class="about-us-section">
-        <div class="container about-us-content">
-            <h2>Acerca de Conectatec</h2>
-            <p>En Conectatec, entendemos los desafíos tecnológicos que enfrentan las pequeñas empresas. Nos apasiona brindar soluciones integrales y accesibles que les permitan enfocarse en su crecimiento, dejando la tecnología en nuestras manos expertas.</p>
-        </div>
-    </section>
-
-    <section id="contact-form" class="contact-form-section">
-        <div class="container contact-form-container">
-            <h2>¡Hablemos!</h2>
-            <form action="https://formsubmit.co/mpsanabriia@gmail.com" method="POST">
-                <input type="hidden" name="_captcha" value="false">
-                <div class="form-group">
-                    <label for="nombre">Nombre</label>
-                    <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Tu Nombre">
-                </div>
-                <div class="form-group">
-                    <label for="email">Correo Electrónico</label>
-                    <input type="email" id="email" name="email" class="form-control" placeholder="Tu Correo Electrónico">
-                </div>
-                 <div class="form-group">
-                    <label for="asunto">Asunto</label>
-                    <input type="text" id="asunto" name="asunto" class="form-control" placeholder="Asunto">
-                </div>
-                <div class="form-group">
-                    <label for="mensaje">Mensaje</label>
-                    <textarea id="mensaje" name="mensaje" class="form-control" placeholder="Tu Mensaje"></textarea>
-                </div>
-                <button type="submit" class="submit-button">Enviar Mensaje</button>
-            </form>
-        </div>
-    </section>
-
-    <footer style="background-color: #2c3e50; color: white; text-align: center; padding: 20px;">
-        <p>© 2024 Conectatec. Todos los derechos reservados.</p>
+    <footer>
+        <p>© 2025 - Promoción turística de El Calafate | Desarrollado</p>
     </footer>
-
-    <script>
-        // Obtiene todos los enlaces que comienzan con "#"
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            // Añade un event listener a cada enlace para el evento "click"
-            anchor.addEventListener('click', function (e) {
-                // Previene el comportamiento predeterminado del enlace (evita que la página salte)
-                e.preventDefault();
-
-                // Obtiene el elemento al que el enlace está apuntando (ej., #contact-form)
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth' // Realiza un desplazamiento suave hasta el elemento
-                });
-            });
-        });
-    </script>
 </body>
 </html>
