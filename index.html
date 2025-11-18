@@ -1,143 +1,90 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Descubrí El Calafate</title>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css"> <!-- acá enlazas tu CSS externo -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>máximo@portfolio:~</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <!-- Hero Section -->
-  <header class="hero-section" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/f/f1/Glaciar_Perito_Moreno_Patagonia_Argentina_Luca_Galuzzi_2005.JPG');">
-    <div class="container">
-      <h1 class="hero-title">Descubrí El Calafate</h1>
-      <p class="hero-subtitle">Naturaleza, aventura, gastronomía y experiencias únicas en Santa Cruz.</p>
-      <a href="#contact-form" class="cta-button">¡Consultanos Ahora!</a>
-    </div>
-  </header>
+  <div class="crt-overlay"></div>
 
-  <!-- Servicios -->
-  <section id="services" class="section">
-    <div class="container">
-      <h2>Atracciones principales</h2>
-      <div class="card-grid">
+  <main class="terminal">
+    <header class="terminal-header">
+      <span class="prompt-user">máximo</span>
+      <span>@</span>
+      <span class="prompt-host">elcalafate</span>
+      <span>:</span>
+      <span class="prompt-path">~/portfolio</span>
+      <span class="prompt-symbol">$</span>
+      <span class="cursor"></span>
+    </header>
 
-        <div class="card">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Glaciar_Perito_Moreno_Patagonia_Argentina_Luca_Galuzzi_2005.JPG" alt="Perito Moreno">
-          <div class="card-content">
-            <h3>Glaciar Perito Moreno</h3>
-            <p>Un frente de 5 km y paredes de hasta 74 m de altura. Una de las maravillas naturales del mundo.</p>
-          </div>
-        </div>
+    <section class="terminal-window">
+      <pre class="banner">
+  __  __       _                _             _
+ |  \/  | __ _| | _____  ___   | | ___   ___ | | __
+ | |\/| |/ _` | |/ / _ \/ __|  | |/ _ \ / _ \| |/ /
+ | |  | | (_| |   <  __/\__ \  | | (_) | (_) |   <
+ |_|  |_|\__,_|_|\_\___||___/  |_|\___/ \___/|_|\_\
+      </pre>
 
-        <div class="card">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/d/dc/Spegazzini_Glacier_-_Lago_Argentino_-_Patagonia.jpg" alt="Glaciar Spegazzini">
-          <div class="card-content">
-            <h3>Glaciar Spegazzini</h3>
-            <p>El glaciar más alto del parque, con paredes que superan los 130 m, accesible solo por barco.</p>
-          </div>
-        </div>
-
-        <div class="card">
-          <img src="https://media-cdn.tripadvisor.com/media/photo-s/0f/01/94/80/cordero-patagonico.jpg" alt="Cordero Patagónico">
-          <div class="card-content">
-            <h3>Gastronomía Patagónica</h3>
-            <p>Prueba el famoso cordero patagónico, trucha fresca, guanaco y dulces de calafate.</p>
-          </div>
-        </div>
-
-        <div class="card">
-          <img src="https://optmedialatam.com/wp-content/uploads/web-corporativa.jpg" alt="Servicios extra">
-          <div class="card-content">
-            <h3>Servicios en Calafate</h3>
-            <p>Casas de cambio, cajeros automáticos y remises económicos tipo Uber local.</p>
-          </div>
-        </div>
-
+      <div class="line">
+        <span class="prompt">$</span>
+        <span class="cmd">whoami</span>
       </div>
-    </div>
-  </section>
+      <div class="output">máximo — optimizador multidisciplinario y troubleshooting técnico</div>
 
-  <!-- Contacto principal -->
-  <section id="contact-form" class="contact-form-section">
-    <div class="container contact-form-container">
-      <h2>¡Hablemos!</h2>
-      <form action="https://formsubmit.co/mpsanabriia@gmail.com" method="POST">
-        <input type="hidden" name="_captcha" value="false">
-        <div class="form-group">
-          <label for="nombre">Nombre</label>
-          <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Tu Nombre" required>
-        </div>
-        <div class="form-group">
-          <label for="email">Correo Electrónico</label>
-          <input type="email" id="email" name="email" class="form-control" placeholder="Tu Correo Electrónico" required>
-        </div>
-        <div class="form-group">
-          <label for="asunto">Asunto</label>
-          <input type="text" id="asunto" name="asunto" class="form-control" placeholder="Asunto" required>
-        </div>
-        <div class="form-group">
-          <label for="mensaje">Mensaje</label>
-          <textarea id="mensaje" name="mensaje" class="form-control" placeholder="Tu Mensaje" required></textarea>
-        </div>
-        <button type="submit" class="submit-button">Enviar Mensaje</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- Opiniones y consultas -->
-  <section class="section">
-    <div class="container">
-      <h2>Dejanos tu consulta o experiencia</h2>
-      <form action="https://formspree.io/f/xyzdknkw" method="POST">
-        <input type="text" name="nombre" placeholder="Tu nombre" required>
-        <input type="email" name="email" placeholder="Tu email" required>
-        <select name="interes">
-          <option value="alojamiento">Alojamiento</option>
-          <option value="excursiones">Excursiones</option>
-          <option value="gastronomia">Gastronomía</option>
-          <option value="transporte">Transporte</option>
-          <option value="remises">Remises económicos</option>
-          <option value="cambio">Casa de cambio</option>
-        </select>
-        <textarea name="mensaje" placeholder="Escribí tu consulta o comentario (pros y contras de lugares visitados)..." rows="5" required></textarea>
-
-        <!-- Campos ocultos -->
-        <input type="hidden" name="_subject" value="Nuevo mensaje desde la web de El Calafate">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" value="https://tu-sitio.com/gracias.html">
-
-        <button type="submit">Enviar</button>
-      </form>
-
-      <div class="nota">
-        🙌 Esta página se mantiene con <b>donaciones voluntarias</b>.  
-        Tu devolución y comentarios ayudan a otros viajeros a elegir mejor.  
-        ¡Gracias por apoyar esta iniciativa!
+      <div class="line">
+        <span class="prompt">$</span>
+        <span class="cmd">ls ./skills</span>
       </div>
-    </div>
-  </section>
+      <div class="output">
+        - redes  - linux  - automatización  - hardware  - servidores  - guías paso a paso
+      </div>
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 - Promoción turística de El Calafate | Desarrollado por Conectatec</p>
-  </footer>
+      <div class="line">
+        <span class="prompt">$</span>
+        <span class="cmd">cat about.txt</span>
+      </div>
+      <div class="output">
+        Diseño y despliegue de flujos digitales/ físicos con foco en seguridad, portabilidad y experiencia.
+      </div>
 
-  <!-- Scroll suave -->
-  <script>
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
-      });
-    });
-  </script>
+      <div class="line">
+        <span class="prompt">$</span>
+        <span class="cmd">projects --list</span>
+      </div>
+      <ul class="output-list">
+        <li><a href="#proj-file-server">Mini-servidor con FTP/SMB para centralizar ISOs y herramientas</a></li>
+        <li><a href="#proj-automation">Automatización de backups y despliegue</a></li>
+        <li><a href="#proj-guides">Guías modulares y mapas visuales</a></li>
+      </ul>
 
+      <div class="line">
+        <span class="prompt">$</span>
+        <span class="cmd">contact --show</span>
+      </div>
+      <div class="output">
+        email: <a href="mailto:tuemail@ejemplo.com">tuemail@ejemplo.com</a> · github: <a href="https://github.com/tuusuario" target="_blank">tuusuario</a>
+      </div>
+
+      <div class="line dim">
+        <span class="prompt">$</span><span class="cmd">exit</span>
+      </div>
+    </section>
+
+    <footer class="terminal-footer">
+      <span>© 2025 máximo — terminal portfolio</span>
+      <span class="status">STATUS: ONLINE</span>
+    </footer>
+  </main>
+
+  <!-- Opcional -->
+  <script src="script.js"></script>
 </body>
 </html>
+
 
 
