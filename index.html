@@ -1,27 +1,40 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <!-- Metadatos básicos: codificación y responsividad -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>máximo@portfolio:~</title>
+
+  <!-- Título estilo prompt de terminal -->
+  <title>maximo@portfolio:~</title>
+
+  <!-- Carga de estilos -->
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
+  <!-- Overlay visual para simular pantalla CRT con líneas -->
   <div class="crt-overlay"></div>
 
+  <!-- Contenedor principal de la "terminal" -->
   <main class="terminal">
+
+    <!-- Encabezado con el prompt de usuario@host:~/ruta $ -->
     <header class="terminal-header">
-      <span class="prompt-user">máximo</span>
+      <!-- Cada fragmento tiene su color propio en CSS -->
+      <span class="prompt-user">maximo</span>
       <span>@</span>
       <span class="prompt-host">elcalafate</span>
       <span>:</span>
       <span class="prompt-path">~/portfolio</span>
       <span class="prompt-symbol">$</span>
+      <!-- Cursor parpadeante para efecto terminal -->
       <span class="cursor"></span>
     </header>
 
+    <!-- "Ventana" donde se muestran comandos y outputs -->
     <section class="terminal-window">
+      <!-- Banner ASCII para identidad -->
       <pre class="banner">
   __  __       _                _             _
  |  \/  | __ _| | _____  ___   | | ___   ___ | | __
@@ -30,12 +43,15 @@
  |_|  |_|\__,_|_|\_\___||___/  |_|\___/ \___/|_|\_\
       </pre>
 
+      <!-- Línea de comando: whoami -->
       <div class="line">
         <span class="prompt">$</span>
         <span class="cmd">whoami</span>
       </div>
+      <!-- Respuesta del "sistema" -->
       <div class="output">máximo — optimizador multidisciplinario y troubleshooting técnico</div>
 
+      <!-- Línea de comando: ls ./skills -->
       <div class="line">
         <span class="prompt">$</span>
         <span class="cmd">ls ./skills</span>
@@ -44,47 +60,79 @@
         - redes  - linux  - automatización  - hardware  - servidores  - guías paso a paso
       </div>
 
+      <!-- Línea de comando: cat about.txt -->
       <div class="line">
         <span class="prompt">$</span>
         <span class="cmd">cat about.txt</span>
       </div>
       <div class="output">
-        Diseño y despliegue de flujos digitales/ físicos con foco en seguridad, portabilidad y experiencia.
+        Diseño y despliegue de flujos digitales/físicos con foco en seguridad, portabilidad y experiencia.
       </div>
 
+      <!-- Línea de comando: projects --list -->
       <div class="line">
         <span class="prompt">$</span>
         <span class="cmd">projects --list</span>
       </div>
       <ul class="output-list">
+        <!-- Enlaces internos o externos a tus proyectos -->
         <li><a href="#proj-file-server">Mini-servidor con FTP/SMB para centralizar ISOs y herramientas</a></li>
         <li><a href="#proj-automation">Automatización de backups y despliegue</a></li>
         <li><a href="#proj-guides">Guías modulares y mapas visuales</a></li>
       </ul>
 
+      <!-- Formulario de contacto "estilo terminal" -->
+      <!-- Nota: el email de destino NO se muestra aquí; se envía por backend/servicio -->
       <div class="line">
         <span class="prompt">$</span>
-        <span class="cmd">contact --show</span>
-      </div>
-      <div class="output">
-        email: <a href="mailto:tuemail@ejemplo.com">tuemail@ejemplo.com</a> · github: <a href="https://github.com/tuusuario" target="_blank">tuusuario</a>
+        <span class="cmd">contact --form</span>
       </div>
 
+      <!-- Contenedor con estilo de salida de terminal -->
+      <div class="output">
+        <!-- Form accesible: label asociado a cada input -->
+        <form id="contact-form" class="contact-form" autocomplete="on" novalidate>
+          <!-- Nombre de quien escribe -->
+          <label for="name">Nombre</label>
+          <input type="text" id="name" name="name" placeholder="Tu nombre" required />
+
+          <!-- Email del remitente (para poder responderle) -->
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="tu@correo.com" required />
+
+          <!-- Mensaje -->
+          <label for="message">Mensaje</label>
+          <textarea id="message" name="message" rows="4" placeholder="¿En qué te ayudo?" required></textarea>
+
+          <!-- Botón estilo comando -->
+          <button type="submit" class="btn-send">
+            <span class="prompt">$</span> send
+          </button>
+
+          <!-- Zona de feedback (éxito/error) sin recargar la página -->
+          <p id="form-status" class="form-status" aria-live="polite"></p>
+        </form>
+      </div>
+
+      <!-- Línea final tenue (simula exit) -->
       <div class="line dim">
         <span class="prompt">$</span><span class="cmd">exit</span>
       </div>
     </section>
 
+    <!-- Footer de la página -->
+    <!-- Contiene copyright y estado -->
     <footer class="terminal-footer">
+      <!-- Texto informativo del sitio -->
       <span>© 2025 máximo — terminal portfolio</span>
+      <!-- Indicador de "estado" (estético) -->
       <span class="status">STATUS: ONLINE</span>
     </footer>
   </main>
 
-  <!-- Opcional -->
+  <!-- Carga del script de efectos y envío de formulario -->
   <script src="script.js"></script>
 </body>
 </html>
-
 
 
