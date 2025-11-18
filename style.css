@@ -1,232 +1,175 @@
-/* --------------------
-   Reset básico
--------------------- */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
+/* ===========================
+   Reset y base tipográfica
+   =========================== */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
 body {
-  font-family: 'Open Sans', sans-serif;
-  line-height: 1.6;
-  background: #f5f7fa;
-  color: #333;
+  margin: 0;
+  background: #0c0f11;               /* Fondo oscuro tipo terminal */
+  color: #c6d0d7;                    /* Texto principal */
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  line-height: 1.5;
 }
 
-/* --------------------
-   Contenedor general
--------------------- */
-.container {
-  width: 90%;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-/* --------------------
-   Hero Section
--------------------- */
-.hero-section {
-  height: 100vh;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: #fff;
-}
-
-.hero-section::after {
-  content: "";
-  position: absolute;
+/* ===========================
+   Overlay CRT: grano + scanlines
+   =========================== */
+.crt-overlay {
+  pointer-events: none;               /* No interactuable */
+  position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.45);
+  background:
+    radial-gradient(ellipse at center, rgba(255,255,255,0.02) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0.4) 100%),
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.015), rgba(255,255,255,0.015) 1px, transparent 2px, transparent 4px);
+  mix-blend-mode: soft-light;         /* Mezcla suave sobre el fondo */
 }
 
-.hero-section .container {
-  position: relative;
-  z-index: 2;
+/* ===========================
+   Contenedor principal (terminal)
+   =========================== */
+.terminal {
+  max-width: 900px;                   /* Ancho cómodo para lectura */
+  margin: 3rem auto;                  /* Centrado con margen superior */
+  border: 1px solid #1e2328;          /* Borde tenue */
+  background: #0a0d10;                /* Fondo un poco más oscuro que body */
+  box-shadow: 0 0 0 2px #0a0d10, 0 20px 60px rgba(0,0,0,0.6); /* Sombra para profundidad */
 }
 
-.hero-title {
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 15px;
-  text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
-}
-
-.hero-subtitle {
-  font-size: 1.2rem;
-  margin-bottom: 30px;
-}
-
-.cta-button {
-  display: inline-block;
-  padding: 12px 25px;
-  background: #2e86ab;
-  color: #fff;
-  font-weight: 600;
-  border-radius: 30px;
-  text-decoration: none;
-  transition: background 0.3s ease;
-}
-
-.cta-button:hover {
-  background: #1f5c74;
-}
-
-/* --------------------
-   Secciones generales
--------------------- */
-.section {
-  padding: 60px 20px;
-  text-align: center;
-}
-
-.section h2 {
-  font-size: 2rem;
-  margin-bottom: 40px;
-  color: #2e86ab;
-}
-
-/* --------------------
-   Grid de tarjetas
--------------------- */
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
-}
-
-.card {
-  background: #fff;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-}
-
-.card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-}
-
-.card-content {
-  padding: 20px;
-}
-
-.card-content h3 {
-  font-size: 1.3rem;
-  margin-bottom: 10px;
-  color: #1f5c74;
-}
-
-/* --------------------
-   Formulario de contacto
--------------------- */
-.contact-form-section {
-  background: #e8f4f8;
-  padding: 60px 20px;
-}
-
-.contact-form-container {
-  background: #fff;
-  padding: 40px;
-  border-radius: 20px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-
-.contact-form-container h2 {
-  color: #2e86ab;
-  margin-bottom: 25px;
-}
-
-form {
+/* ===========================
+   Header con prompt estilo shell
+   =========================== */
+.terminal-header {
   display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.form-group {
-  text-align: left;
-}
-
-label {
+  gap: 0.25rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #1e2328;
+  background: linear-gradient(180deg, #0e1317, #0a0d10);
+  color: #9cdcfe;                     /* Color base del header */
   font-weight: 600;
-  margin-bottom: 5px;
-  display: block;
-  color: #333;
+}
+.prompt-user { color: #98c379; }      /* Verde: usuario */
+.prompt-host { color: #61afef; }      /* Azul: host */
+.prompt-path { color: #e5c07b; }      /* Amarillo: ruta */
+.prompt-symbol { color: #c678dd; }    /* Violeta: símbolo $ */
+.cursor {
+  width: 8px; height: 1em; background: #c6d0d7; margin-left: 6px;
+  animation: blink 1s step-start infinite;      /* Parpadeo */
+}
+@keyframes blink { 50% { opacity: 0; } }
+
+/* ===========================
+   Ventana con comandos/outputs
+   =========================== */
+.terminal-window { padding: 1rem; }
+.banner {
+  color: #7fdbca;                     /* Cian para el banner ASCII */
+  margin: 0 0 1rem 0;
+  white-space: pre;                   /* Respeta espacios/lineas del ASCII */
 }
 
-input, textarea, select {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccd;
-  border-radius: 8px;
-  font-size: 1rem;
-  transition: border 0.3s ease;
+/* ===========================
+   Líneas de comando: prompt + cmd + output
+   =========================== */
+.line {
+  display: flex;
+  gap: 0.5rem;
+  align-items: baseline;
+  margin: 0.25rem 0;
+}
+.prompt { color: #98c379; }           /* Color del símbolo $ en la ventana */
+.cmd { color: #c6d0d7; }              /* Color del "comando" */
+.output {
+  margin: 0.25rem 0 0.75rem;
+  color: #abb2bf;                     /* Color de respuesta/salida */
 }
 
-input:focus, textarea:focus, select:focus {
-  border-color: #2e86ab;
-  outline: none;
+/* ===========================
+   Lista de proyectos
+   =========================== */
+.output-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.25rem 0 1rem;
+}
+.output-list li { margin: 0.25rem 0; }
+.output-list a {
+  color: #61afef;
+  text-decoration: none;
+  border-bottom: 1px dashed #3e78b2; /* Subrayado "terminal" */
+}
+.output-list a:hover {
+  color: #7fdbca;
+  border-bottom-color: #7fdbca;
 }
 
-textarea {
-  resize: vertical;
-  min-height: 120px;
-}
+/* Línea "atenuada" para exit */
+.dim { opacity: 0.7; }
 
-.submit-button,
-form button {
-  background: #2e86ab;
-  color: #fff;
-  padding: 14px;
-  border: none;
-  border-radius: 10px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.submit-button:hover,
-form button:hover {
-  background: #1f5c74;
-}
-
-/* --------------------
-   Nota/donaciones
--------------------- */
-.nota {
-  margin-top: 20px;
-  font-size: 0.95rem;
-  background: #f0f8ff;
-  padding: 15px;
-  border-left: 4px solid #2e86ab;
-  border-radius: 10px;
-}
-
-/* --------------------
-   Footer
--------------------- */
-footer {
-  text-align: center;
-  background: #1f5c74;
-  color: #fff;
-  padding: 20px;
-  margin-top: 40px;
+/* ===========================
+   Footer de la terminal
+   =========================== */
+.terminal-footer {
+  display: flex;                      /* Ubica los elementos a los extremos */
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  border-top: 1px solid #1e2328;      /* Separación del contenido */
+  color: #5c6370;                     /* Texto secundario */
   font-size: 0.9rem;
 }
+.status { color: #7fdbca; }           /* Color del "STATUS: ONLINE" */
+
+/* ===========================
+   Formulario de contacto
+   =========================== */
+.contact-form {
+  display: grid;                      /* Layout simple y ordenado */
+  gap: 0.5rem;
+  max-width: 640px;
+}
+.contact-form label {
+  color: #9cdcfe;                     /* Etiquetas legibles en tema oscuro */
+  font-weight: 600;
+}
+.contact-form input,
+.contact-form textarea {
+  background: #0c0f11;                /* Caja similar al fondo */
+  border: 1px solid #1e2328;          /* Borde tenue */
+  color: #c6d0d7;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  outline: none;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #61afef;              /* Indicador de foco */
+  box-shadow: 0 0 0 2px rgba(97,175,239,0.2);
+}
+.btn-send {
+  justify-self: start;                /* Se alinea como un comando */
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: #0e1317;
+  border: 1px solid #1e2328;
+  color: #98c379;                     /* Verde "ejecutar" */
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.btn-send:hover {
+  border-color: #98c379;
+  box-shadow: 0 0 0 2px rgba(152,195,121,0.15);
+}
+.form-status {
+  margin: 0.25rem 0;
+  color: #abb2bf;                     /* Mensajes de estado */
+}
+
+/* ===========================
+   Responsivo
+   =========================== */
+@media (max-width: 640px) {
+  .terminal { margin: 1rem; }
+  .banner { font-size: 0.9rem; }
+}
+
